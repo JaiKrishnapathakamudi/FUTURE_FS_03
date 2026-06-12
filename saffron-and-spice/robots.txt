@@ -1,0 +1,33 @@
+# Saffron & Spice — robots.txt
+# https://saffronandspice.com
+
+User-agent: *
+Allow: /
+
+# Allow all major crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow admin/private paths (add these if a CMS/backend is added)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /.env
+Disallow: /*.json$
+
+# Allow schema.json specifically
+Allow: /schema.json
+Allow: /manifest.json
+Allow: /sitemap.xml
+
+# Crawl delay (be respectful)
+Crawl-delay: 2
+
+# Sitemaps
+Sitemap: https://saffronandspice.com/sitemap.xml

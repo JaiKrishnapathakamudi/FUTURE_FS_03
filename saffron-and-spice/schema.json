@@ -1,0 +1,269 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "Restaurant",
+      "@id": "https://saffronandspice.com/#restaurant",
+      "name": "Saffron & Spice",
+      "alternateName": "Saffron and Spice Fine Dining",
+      "description": "Hyderabad's most celebrated fine dining restaurant, serving extraordinary Indian cuisine since 2010. Award-winning chefs, farm-fresh ingredients, premium ambience.",
+      "url": "https://saffronandspice.com",
+      "telephone": "+914045678900",
+      "email": "reservations@saffronandspice.com",
+      "priceRange": "₹₹₹",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Net Banking",
+      "servesCuisine": ["Indian", "Mughlai", "Hyderabadi", "Multi-Cuisine"],
+      "hasMenu": "https://saffronandspice.com/pages/menu.html",
+      "acceptsReservations": "True",
+      "reservationUrl": "https://saffronandspice.com/pages/reservation.html",
+      "foundingDate": "2010",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://saffronandspice.com/images/logo.png",
+        "width": 400,
+        "height": 400
+      },
+      "image": [
+        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200",
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200",
+        "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1200"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "42, Banjara Hills Road No. 12",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500034",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.4126,
+        "longitude": 78.4071
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "12:00",
+          "closes": "23:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday"],
+          "opens": "12:00",
+          "closes": "23:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "11:00",
+          "closes": "23:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "opens": "11:00",
+          "closes": "23:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "1240",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Priya Sharma" },
+          "datePublished": "2024-03-15",
+          "reviewBody": "The Dum Biryani Royale is simply transcendent. I've eaten biryani across India and this rivals the very best. The ambience makes it a full sensory experience.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "David Chen" },
+          "datePublished": "2024-02-20",
+          "reviewBody": "As a tourist visiting Hyderabad, this was my top dining highlight. The Coastal Prawn Masala is a must-order. Outstanding value for the quality.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/saffronspice_hyd",
+        "https://www.facebook.com/saffronandspice",
+        "https://www.zomato.com/saffronandspice",
+        "https://www.swiggy.com/saffronandspice"
+      ],
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Valet Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Wheelchair Accessible", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private Dining Room", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Outdoor Seating", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Vegetarian Options", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Vegan Options", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Gluten Free Options", "value": true }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Saffron & Spice Menu",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Starters",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "MenuItem",
+                  "name": "Seekh Kebab",
+                  "description": "Minced lamb with herbs, char-grilled on skewers",
+                  "offers": { "@type": "Offer", "price": "380", "priceCurrency": "INR" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "MenuItem",
+                  "name": "Paneer Tikka",
+                  "description": "Cottage cheese in saffron-yoghurt marinade, tandoor-grilled",
+                  "offers": { "@type": "Offer", "price": "320", "priceCurrency": "INR" },
+                  "suitableForDiet": "https://schema.org/VegetarianDiet"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Main Course",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "MenuItem",
+                  "name": "Royal Butter Chicken",
+                  "description": "Slow-cooked tomato-cream sauce with tender char-grilled chicken",
+                  "offers": { "@type": "Offer", "price": "620", "priceCurrency": "INR" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "MenuItem",
+                  "name": "Dum Biryani Royale",
+                  "description": "Saffron-infused aged basmati slow-cooked with bone-in lamb",
+                  "offers": { "@type": "Offer", "price": "780", "priceCurrency": "INR" }
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "MenuItem",
+                  "name": "Dal Makhani",
+                  "description": "Overnight slow-simmered black lentils in cream and butter",
+                  "offers": { "@type": "Offer", "price": "340", "priceCurrency": "INR" },
+                  "suitableForDiet": "https://schema.org/VegetarianDiet"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://saffronandspice.com/#website",
+      "url": "https://saffronandspice.com",
+      "name": "Saffron & Spice",
+      "description": "Official website of Saffron & Spice Fine Dining Restaurant, Hyderabad",
+      "publisher": { "@id": "https://saffronandspice.com/#restaurant" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://saffronandspice.com/pages/menu.html?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://saffronandspice.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Menu", "item": "https://saffronandspice.com/pages/menu.html" },
+        { "@type": "ListItem", "position": 3, "name": "Reserve", "item": "https://saffronandspice.com/pages/reservation.html" },
+        { "@type": "ListItem", "position": 4, "name": "Gallery", "item": "https://saffronandspice.com/pages/gallery.html" },
+        { "@type": "ListItem", "position": 5, "name": "About", "item": "https://saffronandspice.com/pages/about.html" },
+        { "@type": "ListItem", "position": 6, "name": "Contact", "item": "https://saffronandspice.com/pages/contact.html" }
+      ]
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://saffronandspice.com/#chef",
+      "name": "Arjun Mehta",
+      "jobTitle": "Executive Chef & Founder",
+      "worksFor": { "@id": "https://saffronandspice.com/#restaurant" },
+      "description": "Award-winning chef trained in Mumbai and London. 4× National Award winner. Founder of Saffron & Spice since 2010.",
+      "award": [
+        "India's Best Regional Chef 2022 — Culinary India Awards",
+        "India's Best Regional Chef 2019 — Culinary India Awards"
+      ]
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need to make a reservation in advance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Walk-ins are welcome on weekdays. We strongly recommend reserving at least 48 hours in advance for weekends and special occasions. Book online or call +91 40 4567 8900."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Saffron & Spice offer vegetarian options?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Over 40% of our menu is vegetarian. We also offer vegan, Jain-friendly, and gluten-free options. Please inform us of dietary requirements when booking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is parking available at Saffron & Spice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Complimentary valet parking is available for all dining guests. We also have a private basement parking lot with capacity for 80+ vehicles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I host a private event or corporate dinner at Saffron & Spice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We have two private dining rooms — The Mughal Suite (up to 20 guests) and The Garden Pavilion (up to 50 guests). Contact our events team at events@saffronandspice.com for custom packages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are your opening hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are open every day. Lunch: 12:00 PM – 3:30 PM. Dinner: 7:00 PM – 11:00 PM (11:30 PM on Fridays and Saturdays). Open on all public holidays."
+          }
+        }
+      ]
+    }
+
+  ]
+}

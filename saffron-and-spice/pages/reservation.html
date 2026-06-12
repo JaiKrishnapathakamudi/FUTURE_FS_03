@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Book a table at Saffron & Spice, Hyderabad's finest Indian restaurant. Online reservation for lunch and dinner. Private dining available."/>
+  <meta name="keywords" content="book table Saffron Spice Hyderabad, restaurant reservation online, fine dining booking"/>
+  <meta property="og:title" content="Reserve a Table — Saffron & Spice"/>
+  <title>Reserve a Table — Saffron & Spice | Fine Dining Hyderabad</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>"/>
+  <link rel="canonical" href="https://saffronandspice.com/pages/reservation.html"/>
+  <link rel="manifest" href="../manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="Saffron &amp; Spice"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .reservation-page {
+      min-height:100vh;
+      background:linear-gradient(135deg,var(--charcoal) 0%,var(--charcoal-2) 100%);
+      padding:calc(var(--nav-h) + 3rem) clamp(1.5rem,4vw,4rem) 5rem;
+      position:relative;overflow:hidden;
+    }
+    .reservation-page::before {
+      content:'';position:absolute;inset:0;
+      background:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=50') center/cover;
+      opacity:.06;pointer-events:none;
+    }
+    .reservation-page-inner { max-width:1100px;margin:0 auto;position:relative;z-index:1; }
+    .res-header { text-align:center;margin-bottom:3.5rem; }
+    .res-header .section-label { justify-content:center;color:var(--gold-light);margin-bottom:.75rem; }
+    .res-header .section-label::before { display:none; }
+    .res-header .section-title { color:var(--white); }
+    .res-header p { color:rgba(249,244,237,.65);max-width:500px;margin:.75rem auto 0; }
+    .res-layout { display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start; }
+
+    /* Info cards */
+    .res-info-card {
+      background:rgba(249,244,237,.05);backdrop-filter:blur(20px);
+      border:1px solid rgba(201,150,58,.15);border-radius:var(--radius-xl);
+      padding:2rem;
+    }
+    .res-info-title { font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--gold-light);margin-bottom:1.5rem; }
+    .res-info-row {
+      display:flex;gap:.9rem;align-items:flex-start;
+      padding:.9rem 0;border-bottom:1px solid rgba(249,244,237,.07);
+    }
+    .res-info-row:last-child { border-bottom:none; }
+    .res-info-icon {
+      width:38px;height:38px;flex-shrink:0;
+      background:rgba(201,150,58,.12);border-radius:var(--radius-sm);
+      display:flex;align-items:center;justify-content:center;color:var(--gold);
+    }
+    .res-info-label { font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,244,237,.45);margin-bottom:.2rem; }
+    .res-info-value { font-size:.88rem;color:rgba(249,244,237,.85);line-height:1.55; }
+
+    .call-btn {
+      display:flex;align-items:center;gap:.75rem;justify-content:center;
+      width:100%;padding:.9rem;margin-top:1.5rem;
+      background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);
+      border-radius:var(--radius-sm);color:#25D366;font-weight:700;
+      font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;
+      transition:background .2s;
+    }
+    .call-btn:hover { background:rgba(37,211,102,.22); }
+
+    /* Form box */
+    .res-form-box {
+      background:rgba(249,244,237,.05);backdrop-filter:blur(20px);
+      border:1px solid rgba(201,150,58,.2);border-radius:var(--radius-xl);
+      padding:2.5rem;
+    }
+    .form-section-title { font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:rgba(249,244,237,.8);margin:1.5rem 0 .8rem; }
+    .form-section-title:first-child { margin-top:0; }
+    .res-form-hint { font-size:.78rem;color:rgba(249,244,237,.4);margin-top:-.5rem;margin-bottom:1rem; }
+
+    /* Progress steps */
+    .form-steps { display:flex;gap:.5rem;margin-bottom:2rem; }
+    .form-step {
+      flex:1;height:3px;border-radius:99px;
+      background:rgba(249,244,237,.12);transition:background .4s;
+    }
+    .form-step.done { background:var(--gold); }
+
+    @media(max-width:768px) {
+      .res-layout { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-main">Saffron &amp; Spice</span><span class="nav-logo-sub">Fine Dining · Est. 2010</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li><li><a href="about.html">Our Story</a></li>
+      <li><a href="menu.html">Menu</a></li><li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reservation.html" class="active">Reserve</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-theme" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span></button>
+      <a href="reservation.html" class="btn-reserve-nav">Reserve Table</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="../index.html">Home</a><a href="about.html">Our Story</a>
+  <a href="menu.html">Menu</a><a href="gallery.html">Gallery</a>
+  <a href="reservation.html">Reserve</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="reservation-page">
+  <div class="reservation-page-inner">
+    <div class="res-header reveal">
+      <div class="section-label">Book a Table</div>
+      <h1 class="section-title">Reserve Your <em>Dining</em> Experience</h1>
+      <p>We recommend booking 48 hours ahead for weekends. All bookings are confirmed within 2 hours.</p>
+    </div>
+
+    <div class="res-layout">
+      <!-- Info panel -->
+      <div class="reveal-left">
+        <div class="res-info-card">
+          <div class="res-info-title">Dining Information</div>
+          <div class="res-info-row">
+            <div class="res-info-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="res-info-label">Lunch Hours</div><div class="res-info-value">Monday – Sunday<br/>12:00 PM to 3:30 PM</div></div>
+          </div>
+          <div class="res-info-row">
+            <div class="res-info-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+            <div><div class="res-info-label">Dinner Hours</div><div class="res-info-value">Monday – Sunday<br/>7:00 PM to 11:00 PM</div></div>
+          </div>
+          <div class="res-info-row">
+            <div class="res-info-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div><div class="res-info-label">Capacity</div><div class="res-info-value">Up to 140 covers<br/>Private rooms: 8–50 guests</div></div>
+          </div>
+          <div class="res-info-row">
+            <div class="res-info-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <div><div class="res-info-label">Parking</div><div class="res-info-value">Complimentary valet<br/>+ 80-car basement lot</div></div>
+          </div>
+          <div class="res-info-row">
+            <div class="res-info-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="res-info-label">Address</div><div class="res-info-value">42, Banjara Hills Road No. 12<br/>Hyderabad, Telangana 500034</div></div>
+          </div>
+          <a href="https://wa.me/919900000000?text=Hello%2C%20I%20want%20to%20book%20a%20table" target="_blank" rel="noopener noreferrer" class="call-btn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.555 4.11 1.523 5.843L.057 24l6.304-1.654A11.945 11.945 0 0011.999 24C18.625 24 24 18.627 24 12S18.625 0 11.999 0zm0 21.818a9.814 9.814 0 01-5.003-1.371l-.358-.213-3.742.982.999-3.648-.233-.375A9.816 9.816 0 012.18 12c0-5.416 4.404-9.818 9.82-9.818 5.416 0 9.82 4.402 9.82 9.818 0 5.415-4.404 9.818-9.82 9.818z"/></svg>
+            Book via WhatsApp
+          </a>
+        </div>
+
+        <!-- Policies -->
+        <div style="background:rgba(249,244,237,.04);border:1px solid rgba(249,244,237,.08);border-radius:var(--radius-lg);padding:1.6rem;margin-top:1.5rem">
+          <div style="font-family:var(--font-serif);font-size:1rem;font-weight:600;color:rgba(249,244,237,.7);margin-bottom:1rem">Booking Policies</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:.65rem">
+            <li style="font-size:.82rem;color:rgba(249,244,237,.5);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">✦</span>Confirmation sent within 2 hours of booking</li>
+            <li style="font-size:.82rem;color:rgba(249,244,237,.5);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">✦</span>Tables held for 15 minutes after reservation time</li>
+            <li style="font-size:.82rem;color:rgba(249,244,237,.5);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">✦</span>Cancellations: 24 hours notice required</li>
+            <li style="font-size:.82rem;color:rgba(249,244,237,.5);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">✦</span>Private rooms require 48 hours notice</li>
+            <li style="font-size:.82rem;color:rgba(249,244,237,.5);display:flex;gap:.6rem;align-items:flex-start"><span style="color:var(--gold);flex-shrink:0">✦</span>Groups of 10+ may require a pre-order</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="res-form-box reveal-right">
+        <div class="form-steps" id="form-steps">
+          <div class="form-step done"></div>
+          <div class="form-step"></div>
+          <div class="form-step"></div>
+        </div>
+
+        <form id="res-page-form" novalidate>
+          <div class="form-section-title">Your Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-name">Full Name *</label>
+              <input class="form-input" type="text" id="p-name" placeholder="Your full name" required autocomplete="name"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-phone">Phone *</label>
+              <input class="form-input" type="tel" id="p-phone" placeholder="+91 xxxxxxxxxx" required autocomplete="tel"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-email">Email</label>
+            <input class="form-input" type="email" id="p-email" placeholder="For confirmation email (optional)" autocomplete="email"/>
+          </div>
+
+          <div class="form-section-title">Reservation Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-date">Date *</label>
+              <input class="form-input" type="date" id="p-date" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-time">Time *</label>
+              <select class="form-input form-select" id="p-time" required>
+                <option value="" disabled selected>Select time</option>
+                <optgroup label="Lunch Service">
+                  <option>12:00 PM</option><option>12:30 PM</option><option>1:00 PM</option>
+                  <option>1:30 PM</option><option>2:00 PM</option><option>2:30 PM</option><option>3:00 PM</option>
+                </optgroup>
+                <optgroup label="Dinner Service">
+                  <option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option>
+                  <option>8:30 PM</option><option>9:00 PM</option><option>9:30 PM</option><option>10:00 PM</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="p-guests">Number of Guests *</label>
+              <select class="form-input form-select" id="p-guests" required>
+                <option value="" disabled selected>Select guests</option>
+                <option value="1">1 Guest</option><option value="2">2 Guests</option><option value="3">3 Guests</option>
+                <option value="4">4 Guests</option><option value="5">5 Guests</option><option value="6">6 Guests</option>
+                <option value="7-10">7–10 Guests</option><option value="10-20">10–20 Guests (Private Room)</option>
+                <option value="20+">20+ Guests (Event Enquiry)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p-occasion">Occasion</label>
+              <select class="form-input form-select" id="p-occasion">
+                <option value="">None / Regular Dining</option>
+                <option>Birthday Celebration</option><option>Anniversary</option>
+                <option>Business Dinner</option><option>Romantic Date</option>
+                <option>Family Gathering</option><option>Farewell Dinner</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section-title">Preferences & Requests</div>
+          <div class="form-group">
+            <label class="form-label" for="p-seating">Seating Preference</label>
+            <select class="form-input form-select" id="p-seating">
+              <option value="">No preference</option>
+              <option>Indoor — Main Hall</option><option>Outdoor — Garden Pavilion</option>
+              <option>Window / View Table</option><option>Private Booth</option>
+              <option>Private Dining Room</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-dietary">Dietary Requirements</label>
+            <select class="form-input form-select" id="p-dietary">
+              <option value="">None</option>
+              <option>Vegetarian</option><option>Vegan</option><option>Jain (No Root Veg)</option>
+              <option>Gluten Free</option><option>Nut Allergy</option><option>Shellfish Allergy</option>
+              <option>Halal Only</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="p-notes">Special Requests</label>
+            <textarea class="form-textarea" id="p-notes" placeholder="Cake arrangement, flower decoration, specific seating, allergies not listed above…"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="res-submit-btn">Confirm My Reservation</button>
+          <p style="font-size:.75rem;color:rgba(249,244,237,.35);text-align:center;margin-top:.75rem">We'll confirm within 2 hours via phone or WhatsApp.</p>
+        </form>
+
+        <div id="res-page-success" style="display:none;text-align:center;padding:2rem 1rem">
+          <div style="width:72px;height:72px;background:rgba(201,150,58,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem">
+            <svg width="36" height="36" fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h2 style="font-family:var(--font-serif);font-size:1.6rem;color:rgba(249,244,237,.9);margin-bottom:.6rem">Reservation Received!</h2>
+          <p style="color:rgba(249,244,237,.55);font-size:.9rem;line-height:1.7;margin-bottom:1.5rem">Thank you! We've noted your booking and will contact you within 2 hours to confirm. We look forward to welcoming you to Saffron & Spice.</p>
+          <a href="menu.html" class="btn-primary">Browse Our Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="footer-inner">
+    <div style="text-align:center;padding-bottom:2rem;border-bottom:1px solid rgba(249,244,237,0.08);margin-bottom:2rem">
+      <span class="nav-logo-main" style="font-size:1.5rem;display:block;margin-bottom:.3rem">Saffron &amp; Spice</span>
+      <span class="nav-logo-sub">Fine Dining · Est. 2010 · Hyderabad</span>
+    </div>
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <div class="footer-copy">© 2024 Saffron & Spice. All rights reserved.</div>
+      <nav class="footer-bottom-links"><a href="../index.html">Home</a><a href="menu.html">Menu</a><a href="contact.html">Contact</a></nav>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919900000000" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.555 4.11 1.523 5.843L.057 24l6.304-1.654A11.945 11.945 0 0011.999 24C18.625 24 24 18.627 24 12S18.625 0 11.999 0zm0 21.818a9.814 9.814 0 01-5.003-1.371l-.358-.213-3.742.982.999-3.648-.233-.375A9.816 9.816 0 012.18 12c0-5.416 4.404-9.818 9.82-9.818 5.416 0 9.82 4.402 9.82 9.818 0 5.415-4.404 9.818-9.82 9.818z"/></svg></a>
+<button class="fab-top" id="fab-top" aria-label="Back to top"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script src="../js/main.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(r => console.log("[PWA] SW registered:", r.scope))
+        .catch(e => console.warn("[PWA] SW failed:", e));
+    });
+  }
+</script>
+<script>
+  const dateInput = document.getElementById('p-date');
+  if (dateInput) {
+    const today = new Date();
+    dateInput.min = today.toISOString().split('T')[0];
+    dateInput.value = '';
+  }
+  const form = document.getElementById('res-page-form');
+  const steps = document.querySelectorAll('.form-step');
+  function updateSteps() {
+    const filled = [document.getElementById('p-name'), document.getElementById('p-phone')]
+      .every(el => el && el.value.trim());
+    const filled2 = filled && document.getElementById('p-date')?.value && document.getElementById('p-guests')?.value;
+    steps[0].classList.toggle('done', true);
+    steps[1].classList.toggle('done', !!filled);
+    steps[2].classList.toggle('done', !!filled2);
+  }
+  form.querySelectorAll('input,select,textarea').forEach(el => el.addEventListener('input', updateSteps));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = document.getElementById('res-submit-btn');
+    btn.textContent = 'Confirming…'; btn.disabled = true;
+    setTimeout(() => {
+      form.style.display = 'none';
+      document.getElementById('res-page-success').style.display = 'block';
+    }, 1400);
+  });
+</script>
+</body>
+</html>

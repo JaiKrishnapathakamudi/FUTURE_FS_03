@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="The story of Saffron & Spice — Founded in 2010 by Chef Arjun Mehta. Learn about our heritage, mission, award-winning team, and culinary philosophy."/>
+  <meta name="keywords" content="about Saffron and Spice, restaurant story, Chef Arjun Mehta, Hyderabad fine dining, restaurant history"/>
+  <meta property="og:title" content="Our Story — Saffron & Spice"/>
+  <meta property="og:description" content="14 years of culinary excellence. Meet the team behind Hyderabad's finest dining experience."/>
+  <meta property="og:type" content="website"/>
+  <title>Our Story — Saffron & Spice | Fine Dining Hyderabad</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>"/>
+  <link rel="canonical" href="https://saffronandspice.com/pages/about.html"/>
+  <link rel="manifest" href="../manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="Saffron &amp; Spice"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+    .page-hero {
+      min-height: 52vh;
+      display: flex; align-items: flex-end;
+      padding: 0 clamp(1.5rem,4vw,4rem) 4rem;
+      position: relative; overflow: hidden;
+      background: var(--charcoal);
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(26,20,16,0.35) 0%, rgba(26,20,16,0.82) 100%),
+        url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=75') center/cover;
+    }
+    .page-hero-content {
+      position: relative; z-index: 1;
+      max-width: 1280px; width: 100%; margin: 0 auto;
+    }
+    .page-breadcrumb {
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(249,244,237,0.5); margin-bottom: 1rem;
+    }
+    .page-breadcrumb a { color: var(--gold-light); }
+    .page-breadcrumb a:hover { text-decoration: underline; }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem,6vw,5rem);
+      color: var(--white); letter-spacing: 0.04em; line-height: 1.1;
+    }
+    .page-title em { font-family: var(--font-serif); font-style: italic; color: var(--gold-light); }
+
+    /* Mission & Vision cards */
+    .mv-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      margin-top: 3rem;
+    }
+    .mv-card {
+      background: var(--white);
+      border: 1px solid var(--cream-3);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      border-top: 3px solid var(--gold);
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .mv-card { background: var(--charcoal-2); border-color: var(--charcoal-3); }
+    .mv-card:hover { box-shadow: var(--shadow-card); transform: translateY(-4px); }
+    .mv-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .mv-title {
+      font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700;
+      margin-bottom: 0.8rem; color: var(--text-main);
+    }
+    .mv-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* Chef spotlight */
+    .chef-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem;
+      align-items: center; margin-top: 2rem;
+    }
+    .chef-img-wrap {
+      position: relative;
+    }
+    .chef-img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-deep);
+    }
+    .chef-award-strip {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--gold);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.6rem;
+      color: white; text-align: center;
+      box-shadow: var(--shadow-gold);
+    }
+    .chef-award-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem; line-height: 1; display: block;
+    }
+    .chef-award-lbl {
+      font-size: 0.68rem; letter-spacing: 0.12em;
+      text-transform: uppercase; opacity: 0.9;
+    }
+    .chef-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem,3.5vw,2.8rem);
+      color: var(--text-main); letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+    }
+    .chef-title-role {
+      font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem;
+    }
+    .chef-bio {
+      font-size: 0.95rem; color: var(--text-muted); line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .chef-credentials {
+      display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem;
+    }
+    .chef-cred-tag {
+      padding: 0.4rem 0.9rem;
+      background: rgba(201,150,58,0.1);
+      border: 1px solid rgba(201,150,58,0.25);
+      border-radius: 99px;
+      font-size: 0.75rem; font-weight: 500;
+      color: var(--gold-dark);
+    }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.8rem; margin-top: 3rem;
+    }
+    .team-card {
+      text-align: center;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem 1.5rem;
+      border: 1px solid var(--cream-3);
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .team-card { background: var(--charcoal-2); border-color: var(--charcoal-3); }
+    .team-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
+    .team-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      overflow: hidden; margin: 0 auto 1rem;
+      border: 3px solid var(--gold);
+    }
+    .team-avatar img { width:100%; height:100%; object-fit:cover; }
+    .team-name { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .team-role { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .team-bio { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Awards */
+    .awards-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .award-card {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.6rem;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--cream-3);
+      transition: var(--transition-fast);
+    }
+    [data-theme="dark"] .award-card { background: var(--charcoal-2); border-color: var(--charcoal-3); }
+    .award-card:hover { box-shadow: var(--shadow-card); }
+    .award-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(201,150,58,0.15), rgba(201,150,58,0.05));
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .award-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .award-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; margin: 0.2rem 0; }
+    .award-org { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Timeline */
+    .timeline {
+      position: relative; max-width: 800px; margin: 3rem auto 0;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 1px; background: var(--cream-3); transform: translateX(-50%);
+    }
+    [data-theme="dark"] .timeline::before { background: var(--charcoal-3); }
+    .tl-item {
+      display: flex; gap: 2rem; margin-bottom: 3rem; position: relative;
+    }
+    .tl-item:nth-child(even) { flex-direction: row-reverse; }
+    .tl-content {
+      flex: 1;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      border: 1px solid var(--cream-3);
+      box-shadow: var(--shadow-card);
+    }
+    [data-theme="dark"] .tl-content { background: var(--charcoal-2); border-color: var(--charcoal-3); }
+    .tl-year {
+      font-family: var(--font-display);
+      font-size: 1.6rem; color: var(--gold); line-height: 1; margin-bottom: 0.4rem;
+    }
+    .tl-event-title { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .tl-event-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .tl-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+      margin-top: 1.8rem; align-self: flex-start;
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 4px rgba(201,150,58,0.2);
+    }
+    .tl-spacer { flex: 1; }
+
+    @media (max-width: 768px) {
+      .mv-grid { grid-template-columns: 1fr; }
+      .chef-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .chef-award-strip { right: 0; }
+      .timeline::before { left: 20px; }
+      .tl-item, .tl-item:nth-child(even) { flex-direction: column; padding-left: 3rem; }
+      .tl-dot { position: absolute; left: 14px; top: 0.5rem; }
+      .tl-spacer { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV (same across all pages) -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-main">Saffron &amp; Spice</span>
+      <span class="nav-logo-sub">Fine Dining · Est. 2010</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html" class="active">Our Story</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reservation.html">Reserve</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-theme" id="theme-toggle" aria-label="Toggle dark mode">
+        <span id="theme-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+      </button>
+      <a href="reservation.html" class="btn-reserve-nav">Reserve Table</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="../index.html">Home</a><a href="about.html">Our Story</a>
+  <a href="menu.html">Menu</a><a href="gallery.html">Gallery</a>
+  <a href="reservation.html">Reserve</a><a href="contact.html">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="padding-top:var(--nav-h)">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="../index.html">Home</a> / Our Story</div>
+    <h1 class="page-title">Our <em>Story</em></h1>
+  </div>
+</div>
+
+<!-- MISSION & VISION -->
+<section class="section" id="mission">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Rooted in Tradition,<br/><em>Driven by Passion</em></h2>
+      <p class="section-sub" style="max-width:640px">Saffron & Spice was born from a simple belief: that food is the most honest expression of culture. For fourteen years, we have honoured that belief every single day.</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card reveal">
+        <div class="mv-label">Our Mission</div>
+        <div class="mv-title">To Nourish & Delight</div>
+        <p class="mv-text">To serve extraordinary food in a space that feels like home — warm, welcoming and consistently exceptional. We aim to make every guest feel celebrated, regardless of the occasion. From a quiet lunch for one to a grand family feast, the quality of experience never wavers.</p>
+      </div>
+      <div class="mv-card reveal">
+        <div class="mv-label">Our Vision</div>
+        <div class="mv-title">India's Living Table</div>
+        <p class="mv-text">To become the definitive home of authentic Indian cuisine for a new generation — a place where culinary heritage is preserved with rigour and reimagined with creativity. We envision a restaurant that future chefs and food lovers will look back on as a landmark institution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHEF SPOTLIGHT -->
+<section class="section" id="chef" style="background:var(--cream-2)">
+  <div class="section-inner">
+    <div class="chef-grid">
+      <div class="chef-img-wrap reveal-left">
+        <img class="chef-img"
+          src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=700&q=80"
+          alt="Chef Arjun Mehta — Executive Chef, Saffron & Spice" loading="lazy"/>
+        <div class="chef-award-strip">
+          <span class="chef-award-num">4</span>
+          <span class="chef-award-lbl">National<br/>Awards</span>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Executive Chef</div>
+        <h2 class="chef-name">Arjun Mehta</h2>
+        <div class="chef-title-role">Founder & Executive Chef</div>
+        <p class="chef-bio">Chef Arjun's journey began in his grandmother's kitchen in Lucknow, where he learned that great food starts with patience and love. After culinary school in Mumbai, he trained under Michelin-starred chef Marcus Wareing in London before returning to India with a vision.</p>
+        <p class="chef-bio">He founded Saffron & Spice in 2010 with a team of three and a menu of twelve dishes. Today, that team numbers fifty and the menu spans six categories — but the philosophy remains unchanged: every plate must tell a story.</p>
+        <p class="chef-bio">Chef Arjun was named <strong>India's Best Regional Chef</strong> by Culinary India Awards in 2019 and 2022, and appears regularly on food television and culinary panels across Asia.</p>
+        <div class="chef-credentials">
+          <span class="chef-cred-tag">IHM Mumbai — Gold Medalist</span>
+          <span class="chef-cred-tag">Marcus Wareing, London</span>
+          <span class="chef-cred-tag">Asia's 50 Best — Nominee</span>
+          <span class="chef-cred-tag">4× National Award Winner</span>
+          <span class="chef-cred-tag">FSSAI Food Safety Champion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" id="team">
+  <div class="section-inner">
+    <div class="reveal text-center" style="margin-bottom:0.5rem">
+      <div class="section-label" style="justify-content:center"><span>The People</span></div>
+      <h2 class="section-title">Meet Our <em>Team</em></h2>
+      <p class="section-sub" style="margin:0 auto">The passionate individuals who make every visit extraordinary</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/180?img=12" alt="Priya Nair" loading="lazy"/></div>
+        <div class="team-name">Priya Nair</div>
+        <div class="team-role">Sous Chef</div>
+        <p class="team-bio">Specialist in Southern coastal cuisine. 9 years with the team. Won Best Sous Chef at HRA Telangana 2023.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/180?img=52" alt="Rohit Kapoor" loading="lazy"/></div>
+        <div class="team-name">Rohit Kapoor</div>
+        <div class="team-role">Pastry Chef</div>
+        <p class="team-bio">Trained at Le Cordon Bleu, Paris. Creates our dessert menu from scratch each season using Indian flavour profiles.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/180?img=33" alt="Sneha Rao" loading="lazy"/></div>
+        <div class="team-name">Sneha Rao</div>
+        <div class="team-role">Restaurant Manager</div>
+        <p class="team-bio">8 years in luxury hospitality. Sets the gold standard for service culture at Saffron & Spice.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar"><img src="https://i.pravatar.cc/180?img=68" alt="Vikram Singh" loading="lazy"/></div>
+        <div class="team-name">Vikram Singh</div>
+        <div class="team-role">Head of Tandoor</div>
+        <p class="team-bio">35 years mastering the clay oven. His kebabs and breads have made Saffron & Spice famous across Hyderabad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="section" id="awards" style="background:var(--charcoal)">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label" style="color:var(--gold-light)"><span>Recognition</span></div>
+      <h2 class="section-title" style="color:var(--white)">Awards & <em>Honours</em></h2>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card reveal"><div class="award-icon">🏆</div><div><div class="award-year">2023</div><div class="award-name">Best Fine Dining Restaurant</div><div class="award-org">Times Food Awards — Hyderabad</div></div></div>
+      <div class="award-card reveal"><div class="award-icon">⭐</div><div><div class="award-year">2022</div><div class="award-name">India's Best Regional Chef</div><div class="award-org">Culinary India Awards — Chef Arjun Mehta</div></div></div>
+      <div class="award-card reveal"><div class="award-icon">🎖️</div><div><div class="award-year">2022</div><div class="award-name">Excellence in Hospitality</div><div class="award-org">Hotel & Restaurant Association of Telangana</div></div></div>
+      <div class="award-card reveal"><div class="award-icon">🌟</div><div><div class="award-year">2021</div><div class="award-name">Top 50 Restaurants in India</div><div class="award-org">Condé Nast Traveller India</div></div></div>
+      <div class="award-card reveal"><div class="award-icon">🍽️</div><div><div class="award-year">2019</div><div class="award-name">Best Biryani — South India</div><div class="award-org">Food Lovers India Awards</div></div></div>
+      <div class="award-card reveal"><div class="award-icon">💫</div><div><div class="award-year">2018</div><div class="award-name">Sustainability in Dining</div><div class="award-org">Green Restaurant Alliance India</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="timeline">
+  <div class="section-inner">
+    <div class="reveal text-center" style="margin-bottom:0.5rem">
+      <div class="section-label" style="justify-content:center"><span>Our Journey</span></div>
+      <h2 class="section-title">From Dream to <em>Legacy</em></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-content">
+          <div class="tl-year">2010</div>
+          <div class="tl-event-title">The First Flame</div>
+          <p class="tl-event-desc">Chef Arjun opens Saffron & Spice with a 40-cover dining room, three kitchen staff, and twelve dishes. The queue on opening night stretches down Banjara Hills Road.</p>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2013</div>
+          <div class="tl-event-title">Expansion & Recognition</div>
+          <p class="tl-event-desc">Capacity doubles to 90 covers. Wins first Times Food Award. The Dum Biryani Royale is featured in The Hindu as "the definitive Hyderabadi biryani."</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-content">
+          <div class="tl-year">2016</div>
+          <div class="tl-event-title">Private Dining & Events</div>
+          <p class="tl-event-desc">The Mughal Suite private dining room opens. Saffron & Spice begins hosting curated chef's table experiences and wine pairing dinners.</p>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2019</div>
+          <div class="tl-event-title">National Acclaim</div>
+          <p class="tl-event-desc">Chef Arjun wins India's Best Regional Chef. Restaurant named in Condé Nast's Top 50. The Garden Pavilion opens for outdoor fine dining.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-content">
+          <div class="tl-year">2022</div>
+          <div class="tl-event-title">Farm-to-Table Commitment</div>
+          <p class="tl-event-desc">Launches direct partnerships with 12 certified organic farms across Telangana and Andhra Pradesh. 90% of produce now sourced within 200km.</p>
+        </div>
+        <div class="tl-dot"></div>
+        <div class="tl-spacer"></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-year">2024</div>
+          <div class="tl-event-title">14 Years & Counting</div>
+          <p class="tl-event-desc">Over 24,000 guests served annually. 8 national awards. A new seasonal tasting menu launches, pushing the boundaries of modern Indian cuisine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--gold);padding:3.5rem clamp(1.5rem,4vw,4rem);text-align:center">
+  <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);color:white;letter-spacing:0.04em;margin-bottom:1rem">Be Part of Our <em style="font-family:var(--font-serif)">Story</em></h2>
+  <p style="color:rgba(255,255,255,0.85);font-size:1rem;margin-bottom:1.8rem">Every reservation is the beginning of a new chapter. Join us.</p>
+  <a href="reservation.html" class="btn-outline" style="border-color:rgba(255,255,255,0.7)">Reserve Your Table</a>
+</section>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div style="text-align:center;padding-bottom:2rem;border-bottom:1px solid rgba(249,244,237,0.08);margin-bottom:2rem">
+      <span class="nav-logo-main" style="font-size:1.5rem;display:block;margin-bottom:0.3rem">Saffron &amp; Spice</span>
+      <span class="nav-logo-sub">Fine Dining · Est. 2010 · Hyderabad</span>
+    </div>
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <div class="footer-copy">© 2024 Saffron & Spice. All rights reserved.</div>
+      <nav class="footer-bottom-links">
+        <a href="../index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="reservation.html">Reserve</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919900000000" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.555 4.11 1.523 5.843L.057 24l6.304-1.654A11.945 11.945 0 0011.999 24C18.625 24 24 18.627 24 12S18.625 0 11.999 0zm0 21.818a9.814 9.814 0 01-5.003-1.371l-.358-.213-3.742.982.999-3.648-.233-.375A9.816 9.816 0 012.18 12c0-5.416 4.404-9.818 9.82-9.818 5.416 0 9.82 4.402 9.82 9.818 0 5.415-4.404 9.818-9.82 9.818z"/></svg>
+</a>
+<button class="fab-top" id="fab-top" aria-label="Back to top">
+  <svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script src="../js/main.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(r => console.log("[PWA] SW registered:", r.scope))
+        .catch(e => console.warn("[PWA] SW failed:", e));
+    });
+  }
+</script>
+</body>
+</html>

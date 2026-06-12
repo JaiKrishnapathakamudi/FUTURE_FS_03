@@ -1,0 +1,84 @@
+{
+  "name": "Saffron & Spice — Fine Dining",
+  "short_name": "Saffron & Spice",
+  "description": "Hyderabad's finest Indian fine dining restaurant. Book tables, browse menu, explore gallery.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1A1410",
+  "theme_color": "#C9963A",
+  "lang": "en-IN",
+  "categories": ["food", "lifestyle", "business"],
+  "icons": [
+    {
+      "src": "images/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshot-home.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "label": "Homepage — Hero & Featured Dishes"
+    },
+    {
+      "src": "images/screenshot-menu.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "label": "Full Menu with Search & Filters"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Reserve a Table",
+      "short_name": "Reserve",
+      "description": "Book your dining experience",
+      "url": "/pages/reservation.html",
+      "icons": [{ "src": "images/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Menu",
+      "short_name": "Menu",
+      "description": "Browse our full menu",
+      "url": "/pages/menu.html",
+      "icons": [{ "src": "images/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "description": "Get directions and hours",
+      "url": "/pages/contact.html",
+      "icons": [{ "src": "images/icon-96.png", "sizes": "96x96" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

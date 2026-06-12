@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Full menu of Saffron & Spice — Starters, Main Course, Biryani, Breads, Desserts, Beverages and Combo Meals. Fine dining Indian cuisine in Hyderabad."/>
+  <meta name="keywords" content="Saffron and Spice menu, Indian restaurant menu Hyderabad, butter chicken, biryani, fine dining menu"/>
+  <meta property="og:title" content="Menu — Saffron & Spice Fine Dining"/>
+  <meta property="og:description" content="Explore our full menu — from kebab starters to signature dum biryanis, artisan desserts and handcrafted beverages."/>
+  <title>Menu — Saffron & Spice | Fine Dining Hyderabad</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>"/>
+  <link rel="canonical" href="https://saffronandspice.com/pages/menu.html"/>
+  <link rel="manifest" href="../manifest.json"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="Saffron &amp; Spice"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .page-hero {
+      min-height: 42vh; display: flex; align-items: flex-end;
+      padding: 0 clamp(1.5rem,4vw,4rem) 3.5rem;
+      position: relative; overflow: hidden; background: var(--charcoal);
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,rgba(26,20,16,0.3),rgba(26,20,16,0.85)),
+        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&q=75') center/cover;
+    }
+    .page-hero-content { position:relative;z-index:1;max-width:1280px;width:100%;margin:0 auto; }
+    .page-breadcrumb { font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(249,244,237,.5);margin-bottom:1rem; }
+    .page-breadcrumb a { color:var(--gold-light); }
+    .page-title { font-family:var(--font-display);font-size:clamp(2.4rem,6vw,5rem);color:var(--white);letter-spacing:.04em;line-height:1.1; }
+    .page-title em { font-family:var(--font-serif);font-style:italic;color:var(--gold-light); }
+
+    /* Menu layout */
+    .menu-page-inner { max-width:1280px;margin:0 auto; }
+    .menu-toolbar {
+      display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+      padding:2rem clamp(1.5rem,4vw,4rem);
+      border-bottom:1px solid var(--cream-3);
+      position:sticky;top:var(--nav-h);z-index:100;
+      background:var(--cream);
+      transition:background .3s;
+    }
+    [data-theme="dark"] .menu-toolbar { background:var(--charcoal); border-color:var(--charcoal-3); }
+    .menu-search-wrap { position:relative;flex:1;min-width:220px; }
+    .menu-search-wrap svg { position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-light); }
+    #menu-search-full {
+      width:100%;padding:.7rem 1rem .7rem 2.6rem;
+      border:1px solid var(--cream-3);border-radius:var(--radius-sm);
+      background:var(--white);color:var(--text-main);font-family:var(--font-body);font-size:.9rem;
+      transition:border-color .2s;outline:none;
+    }
+    [data-theme="dark"] #menu-search-full { background:var(--charcoal-2);border-color:var(--charcoal-3);color:var(--white); }
+    #menu-search-full:focus { border-color:var(--gold); }
+    .filter-pills { display:flex;gap:.5rem;flex-wrap:wrap; }
+    .filter-pill {
+      padding:.4rem 1rem;border-radius:99px;border:1px solid var(--cream-3);
+      font-size:.78rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:var(--transition-fast);
+      white-space:nowrap;
+    }
+    [data-theme="dark"] .filter-pill { border-color:var(--charcoal-3); }
+    .filter-pill.active,.filter-pill:hover { background:var(--gold);border-color:var(--gold);color:var(--white); }
+
+    /* Category headers */
+    .menu-category-section { padding:3rem clamp(1.5rem,4vw,4rem); border-bottom:1px solid var(--cream-3); }
+    [data-theme="dark"] .menu-category-section { border-color:var(--charcoal-3); }
+    .menu-category-section:last-child { border-bottom:none; }
+    .cat-header {
+      display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;
+    }
+    .cat-icon {
+      width:52px;height:52px;background:linear-gradient(135deg,rgba(201,150,58,.12),rgba(201,150,58,.05));
+      border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;
+      font-size:1.6rem;flex-shrink:0;
+    }
+    .cat-name { font-family:var(--font-display);font-size:1.5rem;color:var(--text-main);letter-spacing:.04em; }
+    .cat-count { font-size:.78rem;color:var(--text-light);margin-top:.2rem; }
+
+    /* Menu item card - full version */
+    .menu-full-grid {
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;
+    }
+    .menu-full-item {
+      display:flex;gap:1rem;align-items:flex-start;
+      padding:1.2rem;background:var(--white);
+      border-radius:var(--radius-md);border:1px solid var(--cream-3);
+      transition:var(--transition-fast);
+    }
+    [data-theme="dark"] .menu-full-item { background:var(--charcoal-2);border-color:var(--charcoal-3); }
+    .menu-full-item:hover { box-shadow:var(--shadow-card);transform:translateX(3px); }
+    .menu-full-img { width:80px;height:80px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0; }
+    .menu-full-img img { width:100%;height:100%;object-fit:cover;transition:transform .4s; }
+    .menu-full-item:hover .menu-full-img img { transform:scale(1.08); }
+    .menu-full-info { flex:1; }
+    .menu-full-name { font-family:var(--font-serif);font-size:1rem;font-weight:700;margin-bottom:.25rem; }
+    .menu-full-desc { font-size:.8rem;color:var(--text-muted);line-height:1.55;margin-bottom:.6rem; }
+    .menu-full-meta { display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap; }
+    .menu-full-price { font-size:1.05rem;font-weight:700;color:var(--gold); }
+    .menu-full-tags { display:flex;gap:.4rem;align-items:center; }
+    .menu-tag {
+      padding:.2rem .6rem;border-radius:99px;font-size:.65rem;font-weight:600;
+      letter-spacing:.06em;text-transform:uppercase;
+    }
+    .tag-spicy { background:rgba(192,57,43,.1);color:#C0392B; }
+    .tag-popular { background:rgba(201,150,58,.12);color:var(--gold-dark); }
+    .tag-new { background:rgba(45,106,79,.12);color:#2D6A4F; }
+    .tag-chef { background:rgba(90,60,150,.1);color:#5A3C96; }
+
+    /* Combos highlight */
+    .combos-grid {
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;
+    }
+    .combo-card {
+      background:var(--white);border-radius:var(--radius-lg);overflow:hidden;
+      border:1px solid var(--cream-3);box-shadow:var(--shadow-card);
+      transition:var(--transition);
+    }
+    [data-theme="dark"] .combo-card { background:var(--charcoal-2);border-color:var(--charcoal-3); }
+    .combo-card:hover { transform:translateY(-5px);box-shadow:var(--shadow-deep); }
+    .combo-header {
+      padding:1.4rem;background:linear-gradient(135deg,var(--charcoal),var(--charcoal-2));
+      position:relative;overflow:hidden;
+    }
+    .combo-header::before {
+      content:'';position:absolute;top:-30px;right:-30px;
+      width:100px;height:100px;border-radius:50%;
+      background:rgba(201,150,58,.15);
+    }
+    .combo-name { font-family:var(--font-display);font-size:1.1rem;color:white;letter-spacing:.04em; }
+    .combo-serves { font-size:.72rem;color:rgba(249,244,237,.6);letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem; }
+    .combo-body { padding:1.4rem; }
+    .combo-includes { font-size:.82rem;color:var(--text-muted);line-height:1.8;margin-bottom:1rem; }
+    .combo-footer { display:flex;align-items:center;justify-content:space-between; }
+    .combo-price { font-family:var(--font-display);font-size:1.5rem;color:var(--gold); }
+    .combo-saving { font-size:.72rem;color:#2D6A4F;font-weight:600;background:rgba(45,106,79,.1);padding:.25rem .6rem;border-radius:99px; }
+
+    /* Allergen note */
+    .allergen-note {
+      background:rgba(201,150,58,.06);border:1px solid rgba(201,150,58,.2);
+      border-radius:var(--radius-md);padding:1.2rem 1.5rem;
+      font-size:.82rem;color:var(--text-muted);line-height:1.7;
+      margin:2rem 0;display:flex;gap:.75rem;align-items:flex-start;
+    }
+    .allergen-note svg { flex-shrink:0;color:var(--gold);margin-top:2px; }
+
+    .no-results {
+      text-align:center;padding:4rem 2rem;color:var(--text-muted);display:none;
+    }
+    .no-results svg { margin:0 auto 1rem;color:var(--cream-3); }
+
+    @media(max-width:640px){
+      .menu-full-grid { grid-template-columns:1fr; }
+      .combos-grid { grid-template-columns:1fr; }
+      .menu-toolbar { flex-direction:column;align-items:stretch; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-main">Saffron &amp; Spice</span><span class="nav-logo-sub">Fine Dining · Est. 2010</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li><li><a href="about.html">Our Story</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li><li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reservation.html">Reserve</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-theme" id="theme-toggle" aria-label="Toggle dark mode"><span id="theme-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span></button>
+      <a href="reservation.html" class="btn-reserve-nav">Reserve Table</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="../index.html">Home</a><a href="about.html">Our Story</a>
+  <a href="menu.html">Menu</a><a href="gallery.html">Gallery</a>
+  <a href="reservation.html">Reserve</a><a href="contact.html">Contact</a>
+</div>
+
+<div class="page-hero" style="padding-top:var(--nav-h)">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="../index.html">Home</a> / Menu</div>
+    <h1 class="page-title">Our <em>Menu</em></h1>
+  </div>
+</div>
+
+<!-- STICKY TOOLBAR -->
+<div class="menu-toolbar" role="search">
+  <div class="menu-search-wrap">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="search" id="menu-search-full" placeholder="Search dishes, ingredients…" aria-label="Search menu"/>
+  </div>
+  <div class="filter-pills" role="tablist" aria-label="Menu categories">
+    <button class="filter-pill active" data-filter="all" role="tab">All</button>
+    <button class="filter-pill" data-filter="starters" role="tab">Starters</button>
+    <button class="filter-pill" data-filter="mains" role="tab">Main Course</button>
+    <button class="filter-pill" data-filter="biryani" role="tab">Biryani</button>
+    <button class="filter-pill" data-filter="breads" role="tab">Breads & Rice</button>
+    <button class="filter-pill" data-filter="desserts" role="tab">Desserts</button>
+    <button class="filter-pill" data-filter="beverages" role="tab">Beverages</button>
+    <button class="filter-pill" data-filter="combos" role="tab">Combos</button>
+  </div>
+</div>
+
+<main class="menu-page-inner">
+  <div class="allergen-note" style="margin:2rem clamp(1.5rem,4vw,4rem)">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span><strong>Allergen Notice:</strong> Some dishes contain nuts, dairy, gluten, or shellfish. Please inform your server of any allergies before ordering. Our kitchen handles all major allergens. Vegan and Jain substitutions available on request at no extra charge.</span>
+  </div>
+
+  <!-- STARTERS -->
+  <div class="menu-category-section" data-cat="starters">
+    <div class="cat-header">
+      <div class="cat-icon">🔥</div>
+      <div><div class="cat-name">Starters</div><div class="cat-count">12 dishes</div></div>
+    </div>
+    <div class="menu-full-grid">
+      <div class="menu-full-item" data-name="seekh kebab" data-desc="minced lamb herbs char-grilled skewers"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=70" alt="Seekh Kebab" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Seekh Kebab</div><div class="menu-full-desc">Minced lamb blended with herbs, char-grilled on iron skewers from the clay oven</div><div class="menu-full-meta"><div class="menu-full-price">₹380</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-popular">Popular</span></div></div></div></div>
+      <div class="menu-full-item" data-name="paneer tikka" data-desc="cottage cheese yoghurt tandoor"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=200&q=70" alt="Paneer Tikka" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Paneer Tikka</div><div class="menu-full-desc">Cubes of fresh cottage cheese in saffron-yoghurt marinade, tandoor-grilled to perfection</div><div class="menu-full-meta"><div class="menu-full-price">₹320</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-popular">Popular</span></div></div></div></div>
+      <div class="menu-full-item" data-name="fish amritsari" data-desc="beer battered riverine fish chaat masala tamarind"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=200&q=70" alt="Fish Amritsari" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Fish Amritsari</div><div class="menu-full-desc">Beer-battered riverine fish with Amritsari spice rub, tamarind glaze and chaat masala</div><div class="menu-full-meta"><div class="menu-full-price">₹420</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-chef">Chef's Pick</span></div></div></div></div>
+      <div class="menu-full-item" data-name="hara bhara kebab" data-desc="spinach peas paneer patties vegetarian"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=200&q=70" alt="Hara Bhara Kebab" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Hara Bhara Kebab</div><div class="menu-full-desc">Pan-fried spinach, peas and paneer patties served with roasted mint-chilli yoghurt dip</div><div class="menu-full-meta"><div class="menu-full-price">₹280</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="chicken malai tikka" data-desc="cream cheese marinated chicken tender"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=200&q=70" alt="Chicken Malai Tikka" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Chicken Malai Tikka</div><div class="menu-full-desc">Tender chicken in cream-cheese marinade with cardamom and saffron, clay-oven grilled</div><div class="menu-full-meta"><div class="menu-full-price">₹360</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="dahi ke sholey" data-desc="yoghurt stuffed bread crispy vegetarian new"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=70" alt="Dahi Ke Sholey" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Dahi Ke Sholey</div><div class="menu-full-desc">Crispy bread triangles stuffed with spiced hung curd, green chilli and herbs — new menu addition</div><div class="menu-full-meta"><div class="menu-full-price">₹260</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-new">New</span></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- MAIN COURSE -->
+  <div class="menu-category-section" data-cat="mains">
+    <div class="cat-header">
+      <div class="cat-icon">🍛</div>
+      <div><div class="cat-name">Main Course</div><div class="cat-count">18 dishes</div></div>
+    </div>
+    <div class="menu-full-grid">
+      <div class="menu-full-item" data-name="royal butter chicken" data-desc="slow cooked tomato cream sauce tender chicken"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&q=70" alt="Royal Butter Chicken" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Royal Butter Chicken</div><div class="menu-full-desc">Slow-cooked tomato-fenugreek cream sauce with tender char-grilled chicken. Our most loved dish.</div><div class="menu-full-meta"><div class="menu-full-price">₹620</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-popular">Best Seller</span></div></div></div></div>
+      <div class="menu-full-item" data-name="dal makhani" data-desc="overnight slow cooked black lentils cream butter"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&q=70" alt="Dal Makhani" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Dal Makhani</div><div class="menu-full-desc">Overnight slow-simmered black lentils and kidney beans in cream and hand-churned butter</div><div class="menu-full-meta"><div class="menu-full-price">₹340</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-popular">Popular</span></div></div></div></div>
+      <div class="menu-full-item" data-name="coastal prawn masala" data-desc="tiger prawns coconut tamarind gravy mangalorean"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=200&q=70" alt="Coastal Prawn Masala" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Coastal Prawn Masala</div><div class="menu-full-desc">Large tiger prawns in a Mangalorean coconut-tamarind gravy with curry leaves and mustard</div><div class="menu-full-meta"><div class="menu-full-price">₹850</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-chef">Chef's Pick</span></div></div></div></div>
+      <div class="menu-full-item" data-name="palak paneer" data-desc="cottage cheese spinach curry vegetarian"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=200&q=70" alt="Palak Paneer" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Kadai Paneer</div><div class="menu-full-desc">Chunky cottage cheese and peppers in robust tomato-based kadai masala with fenugreek</div><div class="menu-full-meta"><div class="menu-full-price">₹380</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="rogan josh" data-desc="lamb slow cooked kashmiri spices"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=70" alt="Rogan Josh" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Rogan Josh</div><div class="menu-full-desc">Braised lamb in classic Kashmiri sauce of whole spices and Ratanjot, slow-cooked 4 hours</div><div class="menu-full-meta"><div class="menu-full-price">₹720</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-spicy">Spicy</span></div></div></div></div>
+      <div class="menu-full-item" data-name="mushroom do pyaza" data-desc="wild mushroom onion curry new vegetarian"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=200&q=70" alt="Mushroom Do Pyaza" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Wild Mushroom Do Pyaza</div><div class="menu-full-desc">Seasonal wild mushrooms in a rich double-onion masala with whole spices — new seasonal dish</div><div class="menu-full-meta"><div class="menu-full-price">₹360</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-new">New</span></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- BIRYANI -->
+  <div class="menu-category-section" data-cat="biryani" style="background:var(--cream-2)">
+    <div class="cat-header">
+      <div class="cat-icon">🍚</div>
+      <div><div class="cat-name">Dum Biryani</div><div class="cat-count">7 varieties</div></div>
+    </div>
+    <div class="menu-full-grid">
+      <div class="menu-full-item" data-name="dum biryani royale lamb" data-desc="saffron aged basmati slow cooked lamb dum"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&q=70" alt="Dum Biryani Royale" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Dum Biryani Royale — Lamb</div><div class="menu-full-desc">Saffron-infused aged 1121 basmati slow-cooked with bone-in lamb, whole spices and caramelised onions</div><div class="menu-full-meta"><div class="menu-full-price">₹780</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-popular">Signature</span></div></div></div></div>
+      <div class="menu-full-item" data-name="hyderabadi chicken biryani" data-desc="classic Hyderabadi dum chicken basmati"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=200&q=70" alt="Hyderabadi Chicken Biryani" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Hyderabadi Chicken Dum</div><div class="menu-full-desc">The original Hyderabadi preparation — marinated chicken pieces layered with fragrant basmati under a sealed dum</div><div class="menu-full-meta"><div class="menu-full-price">₹580</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-popular">Best Seller</span></div></div></div></div>
+      <div class="menu-full-item" data-name="vegetable biryani" data-desc="seasonal vegetables dum saffron biryani vegetarian"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&q=70" alt="Vegetable Dum Biryani" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Vegetable Dum Biryani</div><div class="menu-full-desc">A medley of seasonal vegetables and paneer, cooked in saffron basmati with fried onions and mint</div><div class="menu-full-meta"><div class="menu-full-price">₹420</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="prawn biryani" data-desc="tiger prawn saffron basmati coastal spices"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=200&q=70" alt="Prawn Biryani" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Coastal Prawn Biryani</div><div class="menu-full-desc">Large tiger prawns in coconut-tinged biryani masala layered with saffron basmati</div><div class="menu-full-meta"><div class="menu-full-price">₹820</div><div class="menu-full-tags"><div class="menu-item-nonveg" title="Non-Veg"></div><span class="menu-tag tag-chef">Chef's Pick</span></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- BREADS & RICE -->
+  <div class="menu-category-section" data-cat="breads">
+    <div class="cat-header">
+      <div class="cat-icon">🫓</div>
+      <div><div class="cat-name">Breads & Rice</div><div class="cat-count">10 items</div></div>
+    </div>
+    <div class="menu-full-grid">
+      <div class="menu-full-item" data-name="truffle garlic naan" data-desc="leavened bread truffle oil garlic clay oven"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=70" alt="Truffle Garlic Naan" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Truffle Garlic Naan</div><div class="menu-full-desc">Leavened bread brushed with truffle-infused butter and fresh garlic from the tandoor</div><div class="menu-full-meta"><div class="menu-full-price">₹120</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-popular">Popular</span></div></div></div></div>
+      <div class="menu-full-item" data-name="butter naan plain naan" data-desc="classic leavened bread tandoor"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=200&q=70" alt="Butter Naan" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Butter Naan</div><div class="menu-full-desc">Classic leavened bread from the tandoor, finished with hand-churned cultured butter</div><div class="menu-full-meta"><div class="menu-full-price">₹80</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="saffron basmati" data-desc="aged basmati steamed whole spices ghee"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&q=70" alt="Saffron Basmati" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Saffron Basmati</div><div class="menu-full-desc">Premium aged 1121 basmati steamed with saffron, whole spices and a drizzle of ghee</div><div class="menu-full-meta"><div class="menu-full-price">₹160</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="paratha laccha" data-desc="layered whole wheat flaky paratha"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=200&q=70" alt="Laccha Paratha" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Laccha Paratha</div><div class="menu-full-desc">Multi-layered flaky whole-wheat bread cooked on the tawa with pure ghee</div><div class="menu-full-meta"><div class="menu-full-price">₹90</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- DESSERTS -->
+  <div class="menu-category-section" data-cat="desserts" style="background:var(--cream-2)">
+    <div class="cat-header">
+      <div class="cat-icon">🍮</div>
+      <div><div class="cat-name">Desserts</div><div class="cat-count">8 items</div></div>
+    </div>
+    <div class="menu-full-grid">
+      <div class="menu-full-item" data-name="saffron gulab jamun" data-desc="rose water saffron syrup edible gold"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=70" alt="Saffron Gulab Jamun" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Saffron Gulab Jamun</div><div class="menu-full-desc">Rose-water infused milk-solid dumplings in saffron syrup, finished with edible gold and pistachios</div><div class="menu-full-meta"><div class="menu-full-price">₹220</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-popular">Popular</span></div></div></div></div>
+      <div class="menu-full-item" data-name="pista kulfi royale" data-desc="pistachio ice cream rose water dense rich"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&q=70" alt="Pista Kulfi" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Pista Kulfi Royale</div><div class="menu-full-desc">Dense slow-set pistachio kulfi with rose water, crushed nuts and a feather of saffron</div><div class="menu-full-meta"><div class="menu-full-price">₹180</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="shahi tukda" data-desc="bread pudding saffron rabri Indian dessert"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&q=70" alt="Shahi Tukda" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Shahi Tukda</div><div class="menu-full-desc">Royal bread pudding in saffron rabri with roasted almonds and silver leaf — a Mughal classic</div><div class="menu-full-meta"><div class="menu-full-price">₹240</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-chef">Chef's Pick</span></div></div></div></div>
+      <div class="menu-full-item" data-name="gajar ka halwa" data-desc="carrot halwa slow cooked winter dessert new"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=200&q=70" alt="Gajar Halwa" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Gajar Ka Halwa</div><div class="menu-full-desc">Slow-cooked red carrot halwa with khoya, cardamom, and a scoop of house-made vanilla kulfi</div><div class="menu-full-meta"><div class="menu-full-price">₹200</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-new">New</span></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- BEVERAGES -->
+  <div class="menu-category-section" data-cat="beverages">
+    <div class="cat-header">
+      <div class="cat-icon">🥤</div>
+      <div><div class="cat-name">Beverages</div><div class="cat-count">12 items</div></div>
+    </div>
+    <div class="menu-full-grid">
+      <div class="menu-full-item" data-name="alphonso mango lassi" data-desc="thick yoghurt alphonso mango cardamom"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=70" alt="Mango Lassi" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Alphonso Mango Lassi</div><div class="menu-full-desc">Thick creamy yoghurt blended with Alphonso mango pulp and a pinch of cardamom</div><div class="menu-full-meta"><div class="menu-full-price">₹160</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-popular">Popular</span></div></div></div></div>
+      <div class="menu-full-item" data-name="heritage masala chai" data-desc="ginger cardamom cinnamon tulsi slow brew tea"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=200&q=70" alt="Masala Chai" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Heritage Masala Chai</div><div class="menu-full-desc">Slow-brewed with fresh ginger, green cardamom, cinnamon, cloves and sacred tulsi</div><div class="menu-full-meta"><div class="menu-full-price">₹90</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+      <div class="menu-full-item" data-name="thandai" data-desc="rose milk saffron almonds cooling drink"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=70" alt="Thandai" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Royal Thandai</div><div class="menu-full-desc">Chilled milk with saffron, rose, almonds, fennel and cardamom — a cooling Rajasthani classic</div><div class="menu-full-meta"><div class="menu-full-price">₹140</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div><span class="menu-tag tag-new">New</span></div></div></div></div>
+      <div class="menu-full-item" data-name="virgin mojito" data-desc="mint lime soda refreshing mocktail"><div class="menu-full-img"><img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=200&q=70" alt="Virgin Mojito" loading="lazy"/></div><div class="menu-full-info"><div class="menu-full-name">Virgin Mojito</div><div class="menu-full-desc">Crushed fresh mint, lime, demerara sugar, and sparkling water over crushed ice</div><div class="menu-full-meta"><div class="menu-full-price">₹120</div><div class="menu-full-tags"><div class="menu-item-veg" title="Vegetarian"></div></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- COMBOS -->
+  <div class="menu-category-section" data-cat="combos" style="background:var(--cream-2)">
+    <div class="cat-header">
+      <div class="cat-icon">🎁</div>
+      <div><div class="cat-name">Combo Meals</div><div class="cat-count">5 packages</div></div>
+    </div>
+    <div class="combos-grid">
+      <div class="combo-card reveal"><div class="combo-header"><div class="combo-name">Family Feast</div><div class="combo-serves">Serves 4 People</div></div><div class="combo-body"><div class="combo-includes">✦ 2 Starters of choice<br/>✦ 3 Main Course dishes<br/>✦ 4 Breads (Naan/Paratha)<br/>✦ 1 Biryani (Veg/Non-Veg)<br/>✦ 1 Shared Dessert platter<br/>✦ 4 Beverages (Lassi/Chai)</div><div class="combo-footer"><div class="combo-price">₹2,199</div><span class="combo-saving">Save ₹680</span></div></div></div>
+      <div class="combo-card reveal"><div class="combo-header"><div class="combo-name">Couple Special</div><div class="combo-serves">Serves 2 People</div></div><div class="combo-body"><div class="combo-includes">✦ 1 Shared Starter<br/>✦ 2 Main Course dishes<br/>✦ 2 Breads of choice<br/>✦ 1 Shared Dessert<br/>✦ 2 Beverages<br/>✦ Complimentary fresh rose</div><div class="combo-footer"><div class="combo-price">₹1,299</div><span class="combo-saving">Save ₹340</span></div></div></div>
+      <div class="combo-card reveal"><div class="combo-header"><div class="combo-name">Solo Executive</div><div class="combo-serves">1 Person · Weekday Lunch</div></div><div class="combo-body"><div class="combo-includes">✦ 1 Starter<br/>✦ 1 Main Course<br/>✦ 2 Breads<br/>✦ Raita & Papadam<br/>✦ 1 Beverage</div><div class="combo-footer"><div class="combo-price">₹549</div><span class="combo-saving">Save ₹180</span></div></div></div>
+      <div class="combo-card reveal"><div class="combo-header"><div class="combo-name">Biryani Feast</div><div class="combo-serves">Serves 2 People</div></div><div class="combo-body"><div class="combo-includes">✦ 1 Kebab starter<br/>✦ 1 Full Biryani (any variety)<br/>✦ Raita + Salan + Mirchi ka Salan<br/>✦ 1 Dessert<br/>✦ 2 Beverages</div><div class="combo-footer"><div class="combo-price">₹1,099</div><span class="combo-saving">Save ₹290</span></div></div></div>
+      <div class="combo-card reveal"><div class="combo-header"><div class="combo-name">Group Celebration</div><div class="combo-serves">Serves 8–10 People</div></div><div class="combo-body"><div class="combo-includes">✦ 4 Starters (Chef's selection)<br/>✦ 5 Main Course dishes<br/>✦ 2 Biryanis<br/>✦ Unlimited Breads<br/>✦ 2 Desserts<br/>✦ 10 Beverages + Mocktails</div><div class="combo-footer"><div class="combo-price">₹4,999</div><span class="combo-saving">Save ₹1,800</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- No results -->
+  <div class="no-results" id="no-results">
+    <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <p>No dishes found matching your search. Try a different keyword.</p>
+  </div>
+</main>
+
+<!-- Reserve CTA bar -->
+<div style="background:var(--gold);padding:1.8rem clamp(1.5rem,4vw,4rem);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+  <div style="color:white">
+    <div style="font-family:var(--font-display);font-size:1.2rem;letter-spacing:.04em">Ready to Dine?</div>
+    <div style="font-size:.85rem;opacity:.85;margin-top:.2rem">Reserve your table and experience these dishes in person</div>
+  </div>
+  <a href="reservation.html" class="btn-outline">Book a Table →</a>
+</div>
+
+<footer id="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div style="text-align:center;padding-bottom:2rem;border-bottom:1px solid rgba(249,244,237,0.08);margin-bottom:2rem">
+      <span class="nav-logo-main" style="font-size:1.5rem;display:block;margin-bottom:.3rem">Saffron &amp; Spice</span>
+      <span class="nav-logo-sub">Fine Dining · Est. 2010 · Hyderabad</span>
+    </div>
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <div class="footer-copy">© 2024 Saffron & Spice. All rights reserved.</div>
+      <nav class="footer-bottom-links"><a href="../index.html">Home</a><a href="about.html">About</a><a href="reservation.html">Reserve</a><a href="contact.html">Contact</a></nav>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919900000000" class="fab-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.117.555 4.11 1.523 5.843L.057 24l6.304-1.654A11.945 11.945 0 0011.999 24C18.625 24 24 18.627 24 12S18.625 0 11.999 0zm0 21.818a9.814 9.814 0 01-5.003-1.371l-.358-.213-3.742.982.999-3.648-.233-.375A9.816 9.816 0 012.18 12c0-5.416 4.404-9.818 9.82-9.818 5.416 0 9.82 4.402 9.82 9.818 0 5.415-4.404 9.818-9.82 9.818z"/></svg></a>
+<button class="fab-top" id="fab-top" aria-label="Back to top"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script src="../js/main.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/sw.js")
+        .then(r => console.log("[PWA] SW registered:", r.scope))
+        .catch(e => console.warn("[PWA] SW failed:", e));
+    });
+  }
+</script>
+<script>
+  // Full menu search + filter
+  const searchInput = document.getElementById('menu-search-full');
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const categorySections = document.querySelectorAll('.menu-category-section');
+  const noResults = document.getElementById('no-results');
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.dataset.filter;
+      searchInput.value = '';
+      categorySections.forEach(sec => {
+        sec.style.display = (filter === 'all' || sec.dataset.cat === filter) ? '' : 'none';
+        sec.querySelectorAll('.menu-full-item,.combo-card').forEach(item => item.style.display = '');
+      });
+      noResults.style.display = 'none';
+      sec.scrollIntoView && sec.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase().trim();
+    filterPills.forEach(p => p.classList.remove('active'));
+    document.querySelector('[data-filter="all"]').classList.add('active');
+    let anyVisible = false;
+    categorySections.forEach(sec => {
+      sec.style.display = '';
+      const items = sec.querySelectorAll('.menu-full-item');
+      let catVisible = false;
+      items.forEach(item => {
+        const name = (item.dataset.name || '').toLowerCase();
+        const desc = (item.dataset.desc || '').toLowerCase();
+        const show = !q || name.includes(q) || desc.includes(q);
+        item.style.display = show ? '' : 'none';
+        if (show) catVisible = true;
+      });
+      if (!q) catVisible = true;
+      sec.style.display = catVisible ? '' : 'none';
+      if (catVisible) anyVisible = true;
+    });
+    noResults.style.display = (!q || anyVisible) ? 'none' : 'block';
+  });
+</script>
+</body>
+</html>
